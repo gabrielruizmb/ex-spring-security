@@ -38,14 +38,14 @@ public class UserModel implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    private UserRole role;
+    private boolean admin;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
         List<GrantedAuthority> rolesList = new ArrayList<>();
         
-        if (this.role == UserRole.ADMIN) {
+        if (this.admin == true) {
 
             rolesList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
             rolesList.add(new SimpleGrantedAuthority("ROLE_USER"));

@@ -1,5 +1,7 @@
 package com.example.ex001springsecurity.user;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.ex001springsecurity.configs.SecurityConfig;
@@ -19,5 +21,9 @@ public class UserService {
         );
 
         userRepository.save(userModel);
+    }
+
+    public List<UserModel> getAll() {
+        return userRepository.findAll();
     }
 }

@@ -15,7 +15,8 @@ public class TestController {
     }
 
     @GetMapping("/user")
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @PreAuthorize("hasRole('USER')")
+    //@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public String userPage() {
         return "<h1>Rota livre para usuários e administradores!</h1><a href = '/logout'>Sair</a>";
     }
